@@ -11,7 +11,7 @@ The installer also doubles as a python library to install Arch Linux and manage 
 
 # Installation & Usage
 ```shell
-sudo pacman -S archinstall
+sudo pacman -S bluesuninstall
 ```
 
 Alternative ways to install are `git clone` the repository or `pip install --upgrade bluesuninstall`.
