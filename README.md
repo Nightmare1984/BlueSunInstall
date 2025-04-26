@@ -2,7 +2,7 @@
 <img src="" alt="drawing" width="200"/>
 
 <!-- </div> -->
-# Arch Installer
+# BlueSunLinux Installer
 [![Lint Python and Find Syntax Errors](https://github.com/archlinux/archinstall/actions/workflows/flake8.yaml/badge.svg)](https://github.com/archlinux/archinstall/actions/workflows/flake8.yaml)
 
 Just another guided/automated [Arch Linux](https://wiki.archlinux.org/index.php/Arch_Linux) installer with a twist.
