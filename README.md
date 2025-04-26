@@ -14,20 +14,20 @@ The installer also doubles as a python library to install Arch Linux and manage 
 sudo pacman -S archinstall
 ```
 
-Alternative ways to install are `git clone` the repository or `pip install --upgrade archinstall`.
+Alternative ways to install are `git clone` the repository or `pip install --upgrade bluesuninstall`.
 
 ## Running the [guided](https://github.com/archlinux/archinstall/blob/master/archinstall/scripts/guided.py) installer
 
 Assuming you are on an Arch Linux live-ISO or installed via `pip`:
 ```shell
-archinstall
+bluesuninstall
 ```
 
 ## Running the [guided](https://github.com/archlinux/archinstall/blob/master/archinstall/scripts/guided.py) installer using `git`
 
 ```shell
-    # cd archinstall-git
-    # python -m archinstall
+    # cd bluesuninstall-git
+    # python -m bluesuninstall
 ```
 
 #### Advanced
@@ -35,7 +35,7 @@ Some additional options that most users do not need are hidden behind the `--adv
 
 ## Running from a declarative configuration file or URL
 
-`archinstall` can be run with a JSON configuration file. There are 2 different configuration files to consider,
+`bluesuninstall` can be run with a JSON configuration file. There are 2 different configuration files to consider,
 the `user_configuration.json` contains all general installation configuration, whereas the `user_credentials.json`
 contains the sensitive user configuration such as user password, root password, and encryption password.
 
