@@ -69,61 +69,6 @@ want to be selected then a proper font has to be set manually in the console.
 All available console fonts can be found in `/usr/share/kbd/consolefonts` and set with `setfont LatGrkCyr-8x16`.
 
 
-# Scripting your own installation
-
-## Scripting interactive installation
-
-There are some examples in the `examples/` directory that should serve as a starting point.
-
-The following is a small example of how to script your own *interactive* installation:
-
-```python
-from pathlib import Path
-
-from archinstall import Installer, ProfileConfiguration, profile_handler, User
-from archinstall.default_profiles.minimal import MinimalProfile
-from archinstall.lib.disk.device_model import FilesystemType
-from archinstall.lib.disk.encryption_menu import DiskEncryptionMenu
-from archinstall.lib.disk.filesystem import FilesystemHandler
-from archinstall.lib.interactions.disk_conf import select_disk_config
-
-fs_type = FilesystemType('ext4')
-
-# Select a device to use for the installation
-disk_config = select_disk_config()
-
-# Optional: ask for disk encryption configuration
-data_store = {}
-disk_encryption = DiskEncryptionMenu(disk_config.device_modifications, data_store).run()
-
-# initiate file handler with the disk config and the optional disk encryption config
-fs_handler = FilesystemHandler(disk_config, disk_encryption)
-
-# perform all file operations
-# WARNING: this will potentially format the filesystem and delete all data
-fs_handler.perform_filesystem_operations()
-
-mountpoint = Path('/tmp')
-
-with Installer(
-        mountpoint,
-        disk_config,
-        disk_encryption=disk_encryption,
-        kernels=['linux']
-) as installation:
-    installation.mount_ordered_layout()
-    installation.minimal_installation(hostname='minimal-arch')
-    installation.add_additional_packages(['nano', 'wget', 'git'])
-
-    # Optionally, install a profile of choice.
-    # In this case, we install a minimal profile that is empty
-    profile_config = ProfileConfiguration(MinimalProfile())
-    profile_handler.install_profile_config(installation, profile_config)
-
-    user = User('archinstall', 'password', True)
-    installation.create_users(user)
-```
-
 This installer will perform the following actions:
 
 * Prompt the user to configure the disk partitioning
@@ -233,19 +178,6 @@ To install Arch Linux alongside an existing Windows installation using  `archins
 
 
 # Mission Statement
-
-Archinstall promises to ship a [guided installer](https://github.com/archlinux/archinstall/blob/master/archinstall/scripts/guided.py) that follows
-the [Arch Linux Principles](https://wiki.archlinux.org/index.php/Arch_Linux#Principles) as well as a library to manage services, packages, and other Arch Linux aspects.
-
-The guided installer ensures a user-friendly experience, offering optional selections throughout the process. Emphasizing its flexible nature, these options are never obligatory.
-In addition, the decision to use the guided installer remains entirely with the user, reflecting the Linux philosophy of providing full freedom and flexibility.
-
----
-
-Archinstall primarily functions as a flexible library for managing services, packages, and other elements within an Arch Linux system.
-This core library is the backbone for the guided installer that Archinstall provides. It is also designed to be used by those who wish to script their own custom installations.
-
-Therefore, Archinstall will try its best to not introduce any breaking changes except for major releases which may break backward compatibility after notifying about such changes.
 
 
 # Contributing
