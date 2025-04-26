@@ -1,5 +1,5 @@
 <!-- <div align="center"> -->
-<img src="https://github.com/archlinux/archinstall/raw/master/docs/logo.png" alt="drawing" width="200"/>
+<img src="" alt="drawing" width="200"/>
 
 <!-- </div> -->
 # Arch Installer
@@ -7,10 +7,6 @@
 
 Just another guided/automated [Arch Linux](https://wiki.archlinux.org/index.php/Arch_Linux) installer with a twist.
 The installer also doubles as a python library to install Arch Linux and manage services, packages, and other things inside the installed system *(Usually from a live medium)*.
-
-* archinstall [discord](https://discord.gg/aDeMffrxNg) server
-* archinstall [#archinstall:matrix.org](https://matrix.to/#/#archinstall:matrix.org) Matrix channel
-* archinstall [#archinstall@irc.libera.chat:6697](https://web.libera.chat/?channel=#archinstall)
 * archinstall [documentation](https://archinstall.archlinux.page/)
 
 # Installation & Usage
@@ -55,21 +51,6 @@ To load the configuration file into `archinstall` run the following command
 ```shell
 archinstall --config <path to user config file or URL> --creds <path to user credentials config file or URL>
 ```
-
-# Help or Issues
-
-If you come across any issues, kindly submit your issue here on Github or post your query in the
-[discord](https://discord.gg/aDeMffrxNg) help channel.
-
-When submitting an issue, please:
-* Provide the stacktrace of the output if applicable
-* Attach the `/var/log/archinstall/install.log` to the issue ticket. This helps us help you!
-  * To extract the log from the ISO image, one way is to use<br>
-    ```shell
-    curl -F'file=@/var/log/archinstall/install.log' https://0x0.st
-    ```
-
-
 # Available Languages
 
 Archinstall is available in different languages which have been contributed and are maintained by the community.
